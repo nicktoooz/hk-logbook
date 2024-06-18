@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HK Logbook - Login</title>
+    <link rel="stylesheet" href="./assets/css/login.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="login-form">
+        <h2>HK Facilitator</h2>
+        <h1>Logbook</h1>
+        <form action="">
+          <div class="input-container">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" />
+            <p class="usernameError error"></p>
+          </div>
+          <div class="input-container">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+            <p class="passwordError error"></p>
+          </div>
+          <button id="submit" type="submit" name="submit">Log-in</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="./js/auth/login.js"></script>
+</html>
