@@ -1,0 +1,74 @@
+.time-out-list-container {
+  max-width: 50em;
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  grid-template-areas: "heading today" "search search" "list list";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto;
+}
+.time-out-list-container .heading {
+  grid-area: heading;
+  font-size: 2em;
+}
+.time-out-list-container .today {
+  grid-area: today;
+  justify-self: end;
+  font-size: 2em;
+}
+.time-out-list-container .input-container {
+  grid-area: search;
+}
+.time-out-list-container .attendance-item {
+  padding: 1em;
+  box-shadow: 4px 4px 4px rgba(128, 128, 128, 0.2784313725);
+  box-sizing: border-box;
+  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "name time-in" "course btn-time-out";
+  place-content: center;
+  position: relative;
+  background-color: white;
+}
+.time-out-list-container .attendance-list {
+  padding-top: 1em;
+  grid-area: list;
+  height: 25em;
+  overflow-y: scroll;
+}
+.time-out-list-container .attendance-item:not(:last-child)::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #d9d9d9;
+  margin: auto;
+  width: 90%;
+}
+.time-out-list-container .name {
+  grid-area: name;
+}
+.time-out-list-container .course {
+  grid-area: course;
+  align-self: end;
+}
+.time-out-list-container .time-in {
+  grid-area: time-in;
+  justify-self: end;
+}
+.time-out-list-container .btn-time-out {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 4px 8px;
+  color: var(--text-secondary);
+  justify-self: end;
+  border-radius: 4px;
+  background-color: var(--danger);
+  grid-area: btn-time-out;
+}/*# sourceMappingURL=content.css.map */

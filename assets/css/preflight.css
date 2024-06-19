@@ -1,8 +1,15 @@
-
 @import url(./custom.css);
 @font-face {
-    font-family: 'Product Sans';
-    src: url(../fonts/product_sans_regular.ttf);
+  font-family: "Product Sans";
+  src: url(../fonts/product_sans_regular.ttf);
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 html,
 body,
@@ -91,21 +98,26 @@ video {
   font-size: 100%;
   font: "inherit";
   box-sizing: border-box;
-  font-family: 'Product Sans';
+  font-family: "Product Sans";
   vertical-align: baseline;
 }
-button{
-  font-family: 'Product Sans';
+button {
+  font-family: "Product Sans";
   margin: 0;
   border: none;
   background: transparent;
   cursor: pointer;
 }
-input{
-    font: inherit;
+input {
+  font: inherit;
 }
-input:hover{
-    outline: none;
+input:hover,
+select:hover {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 article,

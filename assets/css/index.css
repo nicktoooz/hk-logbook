@@ -1,0 +1,79 @@
+@import url(./preflight.css);
+@import url(./components/input.css);
+@import url(./time-in/form.css);
+@import url(./time-out/content.css);
+body {
+  background-color: var(--background);
+  position: relative;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary);
+  color: var(--text-secondary);
+  padding: 0.5em 1em;
+}
+header h1 {
+  font-size: 1.5em;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.logout {
+  background-color: var(--secondary);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+.logout:hover {
+  background-color: var(--secondary-200);
+}
+main {
+  height: 80svh;
+  color: var(--text);
+}
+
+.title {
+  font-size: 2.5em;
+  margin: auto;
+  margin-top: 2em;
+  width: fit-content;
+}
+.actions {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  gap: 1em;
+  margin-top: 2em;
+}
+.actions button {
+  color: var(--text);
+  background-color: var(--secondary);
+  font-size: 2em;
+  padding: 0.5em 2em;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.actions button:hover {
+  background-color: var(--secondary-200);
+}
+
+.overlay {
+  color: var(--text);
+  height: 100svh;
+  width: 100%;
+  z-index: 50;
+  position: absolute;
+  justify-content: center;
+  display: none;
+  align-items: center;
+  background-color: #0000005a;
+}
+
+.overlay-item {
+  background-color: var(--background);
+  border-radius: 8px;
+  padding: 1.5em;
+}

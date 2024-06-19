@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HK Logbook - History</title>
+    <link rel="stylesheet" href="./assets/css/history.css" />
+  </head>
+  <body>
+    <header>
+      <div class="left">
+        <h1>HK Logbook</h1>
+      </div>
+      <div class="right">
+        <a href="history.html">History</a>
+        <button class="logout">Logout</button>
+      </div>
+    </header>
+    <main>
+      <h1 class="heading">History</h1>
+      <div class="filter">
+        <div class="input-container">
+          <input
+            type="text"
+            name="search"
+            class="search"
+            placeholder=""
+            required
+          />
+          <label for="search">Search Student</label>
+        </div>
+        <div class="input-container select">
+          <select class="select-course" id="" required>
+            <option value="">Select a Course</option>
+            <option value="BSCRIM">BSCRIM</option>
+            <option value="ABEL">ABEL</option>
+            <option value="BSMLS">BSMLS</option>
+            <option value="BSCE">BSCE</option>
+            <option value="BSAR">BSAR</option>
+            <option value="BSA">BSA</option>
+            <option value="BSAIS">BSAIS</option>
+            <option value="BSCS">BSCS</option>
+            <option value="BSTM">BSTM</option>
+          </select>
+        </div>
+        <div class="input-container select">
+          <select class="select-year" id="" required>
+            <option value="">Year</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+
+        <div class="input-container select">
+          <select class="select-date" id="" required>
+            <option value="">All Time</option>
+          </select>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th id="course">Course</th>
+          <th id="year">Year</th>
+          <th id="time-in">Time In</th>
+          <th id="time-out">Time Out</th>
+          <th id="date">Date</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>BSCS</td>
+            <td>3</td>
+            <td>7:00</td>
+            <td>12:00</td>
+            <td>2024-06-19</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script type="module" src="./js/auth/logout.js"></script>
+    <script type="module" src="./js/history.js"></script>
+  </body>
+</html>

@@ -3,11 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>HK Logbook</title>
+    <link rel="stylesheet" href="./assets/css/index.css" />
     <script type="module" src="./js/auth/checkPersistence.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body>
-    <button class="logout">Logout</button>
+    <div class="overlay">
+      <div class="success">
+        <lottie-player
+          id="lottie-player"
+          src="./assets/images/check_anim.json"
+          background="transparent"
+          speed="1"
+          loop="1"
+          style="width: 200px; height: 200px"
+        ></lottie-player>
+        <h2 class="message"></h2>
+      </div>
+      <div class="overlay-item input-form">
+        <h1 class="heading">Time In</h1>
+        <form action="">
+          <div class="input-container">
+            <input type="text" name="first-name" placeholder="" required />
+            <label for="first-name">First Name</label>
+          </div>
+          <div class="input-container">
+            <input type="text" name="last-name" placeholder="" required />
+            <label for="last-name">Last Name</label>
+          </div>
+          <label for="" class="select-course select-label">Course</label>
+          <div class="input-container select">
+            <select name="select-course" id="" required>
+              <option value="">Select a Course</option>
+              <option value="BSCRIM">BSCRIM</option>
+              <option value="ABEL">ABEL</option>
+              <option value="BSMLS">BSMLS</option>
+              <option value="BSCE">BSCE</option>
+              <option value="BSAR">BSAR</option>
+              <option value="BSA">BSA</option>
+              <option value="BSAIS">BSAIS</option>
+              <option value="BSCS">BSCS</option>
+              <option value="BSTM">BSTM</option>
+            </select>
+          </div>
+          <label for="" class="select-year select-label">Year</label>
+          <div class="input-container select">
+            <select name="select-year" id="" required>
+              <option value="">Year</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <button class="btn-time-in" type="submit" name="submit">
+            Time In
+          </button>
+        </form>
+        <div class="details">
+          <div class="date-and-time">
+            <h2 class="sub-heading">Time</h2>
+            <p class="value time">00:00:00</p>
+            <h2 class="sub-heading">Date</h2>
+            <p class="value date">YYYY-mm-dd</p>
+          </div>
+        </div>
+      </div>
+      <div class="overlay-item time-out-list-container">
+        <h1 class="heading">Time Out</h1>
+        <h1 class="today">YYYY-MM-DD</h1>
+        <div class="input-container">
+          <input
+            type="text"
+            class="search"
+            name="search"
+            placeholder=""
+            required
+          />
+          <label for="search">Search Student</label>
+        </div>
+        <div class="attendance-list"></div>
+      </div>
+    </div>
+    <header>
+      <div class="left">
+        <h1>HK Logbook</h1>
+      </div>
+      <div class="right">
+        <a href="history.html">History</a>
+        <button class="logout">Logout</button>
+      </div>
+    </header>
+    <main>
+      <h1 class="title">HK Facilitator&apos;s Logbook</h1>
+      <div class="actions">
+        <button class="time-in">Time In</button>
+        <button class="time-out">Time Out</button>
+      </div>
+    </main>
     <script type="module" src="./js/auth/logout.js"></script>
+    <script type="module" src="./assets/js/overlay.js"></script>
+    <script type="module" src="./js/time-in.js"></script>
+    <script type="module" src="./js/loadData.js"></script>
+    <script type="module" src="./js/time-out.js"></script>
+    <script type="module" src="./assets/js/setDateAndTime.js"></script>
   </body>
 </html>

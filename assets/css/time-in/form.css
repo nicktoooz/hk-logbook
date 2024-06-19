@@ -1,0 +1,65 @@
+.input-form {
+  display: none;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  grid-template-areas:
+    "heading heading"
+    "form details";
+}
+.input-form form {
+  grid-area: form;
+}
+
+.input-form .heading {
+  grid-area: heading;
+  font-size: 2em;
+  column-span: all;
+}
+.input-form .details .sub-heading {
+  font-weight: 100;
+}
+.input-form .value {
+  font-weight: bold;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+.input-form .input-container {
+  margin-bottom: 1em;
+}
+.input-form .btn-time-in {
+  background-color: var(--primary);
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  padding: 4px 16px;
+  margin-top: 1em;
+  border-radius: 4px;
+}
+.input-form .details {
+  grid-area: details;
+}
+.input-form .input-container.select {
+  margin: 0.2em 0 0.5em 0;
+}
+.input-form .select-label {
+  font-size: 0.8em;
+}
+
+.input-form .input-container select {
+  width: 10em;
+  border-radius: 4px;
+  font-family: "Product Sans";
+  padding: 8px;
+}
+.success {
+  display: none;
+  height: 20em;
+  padding-left: 3em;
+  padding-right: 3em;
+  background-color: var(--background);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 1.5em;
+}
