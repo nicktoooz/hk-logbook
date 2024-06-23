@@ -17,6 +17,8 @@ form.addEventListener("submit", (e) => {
     lastName: form["last-name"].value,
     course: form["select-course"].value,
     year: form["select-year"].value,
+    teacher: form['select-teacher'].value,
+    area: form['select-area'].value,
     timeIn: getTime(),
     date: getDate(),
   });
@@ -37,6 +39,8 @@ function sanitizeFormData(data) {
     lastName: pascalCase(data.lastName.trim()),
     course: data.course.trim(),
     year: data.year.trim(),
+    teacher: data.teacher.trim(),
+    area: data.area.trim(),
     timeIn: data.timeIn,
     date: data.date,
   };

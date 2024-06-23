@@ -2,6 +2,7 @@
 @import url(./components/input.css);
 @import url(./time-in/form.css);
 @import url(./time-out/content.css);
+@import url(./components/confirm.css);
 body {
   background-color: var(--background);
   position: relative;

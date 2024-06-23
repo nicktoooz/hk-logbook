@@ -33,7 +33,7 @@ function sanitizeInputData($data) {
 }
 
 function insertAttendanceRecord($conn, $data) {
-    $query = "INSERT INTO attendance (`first_name`, `last_name`, `year`, `course`, `time_in`, `time_out`, `date`) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO attendance (`first_name`, `last_name`, `year` ,`teacher`, `area`, `course`, `time_in`, `time_out`, `date`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
     if ($stmt === false) {
@@ -43,10 +43,12 @@ function insertAttendanceRecord($conn, $data) {
 
     $time = null;
 
-    $stmt->bind_param('ssissss',
+    $stmt->bind_param('ssissssss',
         $data['firstName'],
         $data['lastName'],
         $data['year'],
+        $data['teacher'],
+        $data['area'],
         $data['course'],
         $data['timeIn'],
         $time,

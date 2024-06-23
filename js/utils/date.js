@@ -32,3 +32,31 @@ export function convertTo12HourFormat(time24 = "00:00:00") {
     hour12: true,
   });
 }
+
+export function calculateTimeGap(timeIn, timeOut) {
+  const timeInDate = parseTimeToDate(timeIn);
+  const timeOutDate = parseTimeToDate(timeOut);
+
+  const diff = timeOutDate - timeInDate;
+
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+  return { hours, minutes };
+}
+
+function parseTimeToDate(timeStr) {
+  const [time, period] = timeStr.split(' ');
+  let [hours, minutes] = time.split(':');
+  hours = parseInt(hours);
+  minutes = parseInt(minutes);
+
+  // Adjust for AM/PM
+  if (period === 'PM' && hours < 12) hours += 12;
+  if (period === 'AM' && hours === 12) hours = 0;
+
+  const date = new Date();
+  date.setHours(hours, minutes, 0, 0);
+
+  return date;
+}

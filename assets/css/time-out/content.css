@@ -60,7 +60,7 @@
   grid-area: time-in;
   justify-self: end;
 }
-.time-out-list-container .btn-time-out {
+.time-out-list-container .btn-confirm {
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;

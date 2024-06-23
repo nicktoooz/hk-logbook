@@ -1,11 +1,12 @@
 import { _fetch } from "./utils/fetch.js";
-import { getDate, getTime, convertTo12HourFormat } from "./utils/date.js";
+import { getDate, getTime, convertTo12HourFormat, calculateTimeGap } from "./utils/date.js";
 import currentDir from "./utils/currentDir.js";
 import { loadData as ld } from "./utils/loadData.js";
 
 const today = document.querySelector(".today");
 const searchInput = document.querySelector(".search");
 const success = document.querySelector(".success");
+const confirm = document.querySelector(".confirm");
 const contentContainer = document.querySelector(".time-out-list-container");
 const player = document.querySelector(".success lottie-player");
 const overlay = document.querySelector(".overlay");
@@ -33,9 +34,45 @@ function createAttendanceItem(data) {
   item.appendChild(timeIn);
 
   const button = document.createElement("button");
-  button.className = "btn-time-out";
+  button.className = "btn-confirm";
   button.textContent = "Time Out";
-  button.addEventListener("click", () => handleTimeOut(data.id));
+  button.addEventListener("click", () => {
+    confirm.style.display = "flex";
+    contentContainer.style.display = "none";
+    document.querySelector(".summary.time-in").textContent =
+      convertTo12HourFormat(data.time_in);
+    document.querySelector(".summary.time-out").textContent =
+      convertTo12HourFormat(getTime());
+    document.querySelector(".summary.date").textContent = data.date;
+    const {hours, minutes} = calculateTimeGap(data.time_in, getTime())
+    document.querySelector(".summary.hours").textContent = `${hours} Hours and ${minutes} minutes`;
+
+    
+
+    const confirmActionContainer = document.querySelector(".time-out-action");
+    confirmActionContainer.innerHTML = "";
+
+    const cancel = document.createElement("button");
+    cancel.textContent = "Cancel";
+    cancel.setAttribute("class", "time-out-cancel");
+
+    const confirm_btn = document.createElement("button");
+    confirm_btn.textContent = "Confirm";
+    confirm_btn.setAttribute("class", "time-out-confirm");
+
+    confirm_btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      handleTimeOut(data.id);
+    });
+    cancel.addEventListener("click", () => {
+      confirmActionContainer.innerHTML = "";
+      confirm.style.display = "none";
+      overlay.style.display = "none";
+    });
+    confirmActionContainer.appendChild(cancel);
+    confirmActionContainer.appendChild(confirm_btn);
+  });
   item.appendChild(button);
   return item;
 }
@@ -82,6 +119,7 @@ function handleTimeOut(id) {
 
 function playAnim() {
   player.play();
+  confirm.style.display = "none";
   contentContainer.style.display = "none";
   success.style.display = "flex";
   document.querySelector(".message").textContent = "Time-out Successful";

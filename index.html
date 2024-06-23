@@ -21,6 +21,23 @@
         ></lottie-player>
         <h2 class="message"></h2>
       </div>
+      <div class="confirm">
+        <div class="info-summary">
+          <h1 class="heading">Summary</h1>
+          <p class="summary-label">Time In:</p>
+          <p class="summary time-in">00:00:00</p>
+          <p class="summary-label">Time Out:</p>
+          <p class="summary time-out">00:00:00</p>
+          <p class="summary-label">Date</p>
+          <p class="summary date">YYYY-MM-DD</p>
+          <p class="summary-label">Time</p>
+          <p class="summary hours">X</p>
+        </div>
+        <div class="time-out-action">
+          <button class="time-out-cancel"></button>
+          <button class="time-out-confirm"></button>
+        </div>
+      </div>
       <div class="overlay-item input-form">
         <h1 class="heading">Time In</h1>
         <form action="">
@@ -47,7 +64,7 @@
               <option value="BSTM">BSTM</option>
             </select>
           </div>
-          <label for="" class="select-year select-label">Year</label>
+          <label for="" class="select-teacher select-label">Year</label>
           <div class="input-container select">
             <select name="select-year" id="" required>
               <option value="">Year</option>
@@ -55,6 +72,23 @@
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
+            </select>
+          </div>
+          <label for="" class="select-teacher select-label">Teacher</label>
+          <div class="input-container select">
+            <select name="select-teacher" id="" required>
+              <option value="">Teacher</option>
+              <option value="John Doe">John Doe</option>
+              <option value="Jane Doe">Jane Doe</option>
+            </select>
+          </div>
+          <label for="" class="select-year select-label">Area</label>
+          <div class="input-container select">
+            <select name="select-area" id="" required>
+              <option value="">Area</option>
+              <option value="Class Faci">Class Faci</option>
+              <option value="Office Faci">Office Faci</option>
+              <option value="Extra Duty">Extra Duty</option>
             </select>
           </div>
           <button class="btn-time-in" type="submit" name="submit">

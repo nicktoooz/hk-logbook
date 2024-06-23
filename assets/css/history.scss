@@ -47,6 +47,8 @@ td {
 #year,
 #course,
 #time-in,
+#teacher,
+#area,
 #time-out,
 #date {
   width: 8em;
@@ -75,4 +77,7 @@ select:focus-visible{
 .filter {
   display: flex;
   gap: 1em;
+}
+#export-btn{
+  cursor: pointer;
 }
