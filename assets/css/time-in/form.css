@@ -48,6 +48,7 @@
 .input-form .input-container select {
   width: 10em;
   border-radius: 4px;
+  border: none;
   font-family: "Product Sans";
   padding: 8px;
 }

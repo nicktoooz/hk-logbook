@@ -1,0 +1,78 @@
+@import url(./preflight.css);
+@import url(./components/input.css);
+#body {
+  color: var(--text);
+  background-color: var(--background);
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary);
+  color: var(--text-secondary);
+  padding: 0.5em 1em;
+}
+header h1 {
+  font-size: 1.5em;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.logout {
+  background-color: var(--secondary);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+.logout:hover {
+  background-color: var(--secondary-200);
+}
+main {
+  padding: 1em;
+}
+.heading {
+  font-size: 2em;
+}
+table {
+  width: 100%;
+  margin-top: 1em;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 0.5em;
+}
+#year,
+#course,
+#time-in,
+#time-out,
+#date {
+  width: 8em;
+  max-width: 100%;
+}
+td:not(:first-child) {
+  text-align: center;
+}
+
+.select-label {
+  font-size: 0.8em;
+}
+
+select:focus-visible{
+    outline: none;
+}
+
+.input-container select {
+  width: 10em;
+  border-radius: 4px;
+  font-family: "Product Sans";
+  padding: 8px;
+  border: none;
+}
+
+.filter {
+  display: flex;
+  gap: 1em;
+}
