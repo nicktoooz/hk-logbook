@@ -6,12 +6,18 @@
   place-items: center;
   background: var(--background);
 }
+.main-container img {
+  width: 100%;
+  transform: scale(1.2);
+}
 .login-form {
   background-color: var(--primary);
   max-width: 45em;
   width: 100%;
   border-radius: 8px;
   padding: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   color: var(--text-secondary);
 }
 h1 {

@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="./assets/css/index.css" />
     <script type="module" src="./js/auth/checkPersistence.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-
-
   </head>
   <body>
     <div class="overlay">
@@ -45,7 +42,13 @@
         <h1 class="heading">Time In</h1>
         <form action="">
           <div class="input-container">
-            <input type="text" maxlength="15" name="student-number" placeholder="" required />
+            <input
+              type="text"
+              maxlength="15"
+              name="student-number"
+              placeholder=""
+              required
+            />
             <label for="student">Student Number</label>
           </div>
           <div class="input-container">
@@ -55,6 +58,10 @@
           <div class="input-container">
             <input type="text" name="last-name" placeholder="" required />
             <label for="last-name">Last Name</label>
+          </div>
+          <div class="input-container">
+            <input type="text" name="select-teacher" placeholder="" required />
+            <label for="select-teacher">Teacher</label>
           </div>
           <label for="" class="select-course select-label">Course</label>
           <div class="input-container select">
@@ -72,7 +79,7 @@
               <option value="BSENT">BSENT</option>
             </select>
           </div>
-          <label for="" class="select-teacher select-label">Year</label>
+          <label for="" class="select-year select-label">Year</label>
           <div class="input-container select">
             <select name="select-year" id="" required>
               <option value="">Year</option>
@@ -81,11 +88,6 @@
               <option value="3">3</option>
               <option value="4">4</option>
             </select>
-          </div>
-          <label for="" class="select-teacher select-label">Teacher</label>
-          <div class="input-container">
-            <input type="text" name="select-teacher" placeholder="" required />
-            <label for="select-teacher">Last Name</label>
           </div>
           <label for="" class="select-year select-label">Area</label>
           <div class="input-container select">
@@ -96,6 +98,7 @@
               <option value="Extra Duty">Extra Duty</option>
             </select>
           </div>
+
           <button class="btn-time-in" type="submit" name="submit">
             Time In
           </button>
@@ -131,10 +134,11 @@
       </div>
       <div class="right">
         <a href="history.html">History</a>
-        <button class="logout" >Logout</button>
+        <button class="logout">Logout</button>
       </div>
     </header>
     <main>
+      <img src="./assets/images/upang_logo.svg" alt="" />
       <h1 class="title">HK Facilitator&apos;s Logbook</h1>
       <div class="actions">
         <button class="time-in">Time In</button>

@@ -41,10 +41,10 @@
 .input-form .input-container.select {
   margin: 0.2em 0 0.5em 0;
 }
+
 .input-form .select-label {
   font-size: 0.8em;
 }
-
 .input-form .input-container select {
   width: 10em;
   border-radius: 4px;
