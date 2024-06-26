@@ -2,17 +2,31 @@ import { getDate, getTime } from "./utils/date.js";
 import { _fetch } from "../js/utils/fetch.js";
 import currentDir from "../js/utils/currentDir.js";
 
+
 const overlay = document.querySelector(".overlay");
 const input_overlay = document.querySelector(".input-form");
 const form = document.querySelector(".input-form form");
 const success = document.querySelector(".success");
 const player = document.querySelector(".success lottie-player");
 
+let inputType = null;
+
+document.onkeydown = (e)=>{
+  inputType = e.key
+}
+
+form['student-number'].addEventListener('input', (e)=>{
+  if ((e.target.value.length == 2 || e.target.value.length == 7) && inputType != 'Backspace') {
+    e.target.value += '-'
+  }
+})
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   player.play();
 
   const payload = sanitizeFormData({
+    studentNumber: form['student-number'].value,
     firstName: form["first-name"].value,
     lastName: form["last-name"].value,
     course: form["select-course"].value,
@@ -35,11 +49,12 @@ form.addEventListener("submit", (e) => {
 
 function sanitizeFormData(data) {
   return {
+    studentNumber: data.studentNumber,
     firstName: pascalCase(data.firstName.trim()),
     lastName: pascalCase(data.lastName.trim()),
     course: data.course.trim(),
     year: data.year.trim(),
-    teacher: data.teacher.trim(),
+    teacher: pascalCase(data.teacher.trim()),
     area: data.area.trim(),
     timeIn: data.timeIn,
     date: data.date,

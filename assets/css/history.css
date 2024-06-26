@@ -68,6 +68,12 @@ td {
 td:not(:first-child) {
   text-align: center;
 }
+th:nth-child(1){
+  width: 17ch;
+}
+td:nth-child(1), td:nth-child(2){
+  text-align: start;
+}
 
 .select-label {
   font-size: 0.8em;

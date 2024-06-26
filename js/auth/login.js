@@ -10,17 +10,14 @@ const login = document.querySelector("#submit");
 login.addEventListener("click", (e) => {
   usernameError.textContent = "";
   passwordError.textContent = "";
-
   e.preventDefault();
-  console.log("Woo");
-
   _fetch("POST", `${currentDir}/php/auth/login.php`, {
     username: username.value,
     password: password.value,
   }).then((res) => {
     checkCredentials(res)
       .then(() => {
-        location.href = `${currentDir}`;
+        window.location.replace(`${currentDir}`);
       })
       .catch(() => {});
   });

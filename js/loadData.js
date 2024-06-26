@@ -3,6 +3,7 @@ import { getDate, getTime, convertTo12HourFormat, calculateTimeGap } from "./uti
 import currentDir from "./utils/currentDir.js";
 import { loadData as ld } from "./utils/loadData.js";
 
+
 const today = document.querySelector(".today");
 const searchInput = document.querySelector(".search");
 const success = document.querySelector(".success");

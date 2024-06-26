@@ -1,6 +1,7 @@
 import { loadData } from "./utils/loadData.js";
 import { convertTo12HourFormat, getDate, getTime } from "./utils/date.js";
 
+
 let attendanceData = [];
 const tableBody = document.querySelector("tbody");
 const searchInput = document.querySelector(".search");
@@ -11,6 +12,10 @@ const exportBtn = document.getElementById("export-btn");
 
 function createTableRow(data) {
   const row = document.createElement("tr");
+
+  const idCell = document.createElement("td");
+  idCell.textContent = `${data.student_number}`;
+  row.appendChild(idCell);
 
   const nameCell = document.createElement("td");
   nameCell.textContent = `${data.first_name} ${data.last_name}`;
@@ -80,6 +85,7 @@ function exportToExcel() {
   });
 
   const headers = [
+    'Student ID',
     "Full Name",
     "Course",
     "Year",
@@ -93,10 +99,11 @@ function exportToExcel() {
 
   const ws = XLSX.utils.aoa_to_sheet(data);
   ws["!cols"] = ws["!cols"] || [];
-  ws["!cols"][0] = { wch: 30 };
-  ws["!cols"][3] = { wch: 15 };
-  ws["!cols"][4] = { wch: 10 };
-  ws["!cols"][7] = { wch: 10 };
+  ws["!cols"][0] = { wch: 20 };
+  ws["!cols"][1] = { wch: 30 };
+  ws["!cols"][4] = { wch: 15 };
+  ws["!cols"][5] = { wch: 10 };
+  ws["!cols"][8] = { wch: 10 };
 
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Attendance");

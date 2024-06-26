@@ -7,6 +7,8 @@
     <script type="module" src="./js/auth/checkPersistence.js"></script>
     <link rel="stylesheet" href="./assets/css/history.css" />
     <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+     
+    
   </head>
   <body>
     <header>
@@ -15,7 +17,7 @@
       </div>
       <div class="right">
         <a id="export-btn">Export to Excel</a>
-        <button class="logout">Logout</button>
+        <button class="logout" onclick="logout()">Logout</button>
       </div>
     </header>
     <main>
@@ -43,6 +45,8 @@
             <option value="BSAIS">BSAIS</option>
             <option value="BSCS">BSCS</option>
             <option value="BSTM">BSTM</option>
+            <option value="BSENT">BSENT</option>
+
           </select>
         </div>
         <div class="input-container select">
@@ -63,6 +67,7 @@
       </div>
       <table>
         <thead>
+          <th>Student ID</th>
           <th>Name</th>
           <th id="course">Course</th>
           <th id="year">Year</th>
@@ -86,5 +91,20 @@
     </main>
     <script type="module" src="./js/auth/logout.js"></script>
     <script type="module" src="./js/history.js"></script>
+
+   
+     
+
+    <script>
+      function logout() {
+        // Redirect to the login page
+        window.location.href = "login.html";
+        
+        // Modify the browser history to prevent going back to this page
+        history.pushState(null, "", "login.html");
+      }
+    </script>
+
+
   </body>
 </html>

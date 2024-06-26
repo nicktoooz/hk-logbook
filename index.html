@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./assets/css/index.css" />
     <script type="module" src="./js/auth/checkPersistence.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+
   </head>
   <body>
     <div class="overlay">
@@ -42,6 +45,10 @@
         <h1 class="heading">Time In</h1>
         <form action="">
           <div class="input-container">
+            <input type="text" maxlength="15" name="student-number" placeholder="" required />
+            <label for="student">Student Number</label>
+          </div>
+          <div class="input-container">
             <input type="text" name="first-name" placeholder="" required />
             <label for="first-name">First Name</label>
           </div>
@@ -62,6 +69,7 @@
               <option value="BSAIS">BSAIS</option>
               <option value="BSCS">BSCS</option>
               <option value="BSTM">BSTM</option>
+              <option value="BSENT">BSENT</option>
             </select>
           </div>
           <label for="" class="select-teacher select-label">Year</label>
@@ -75,12 +83,9 @@
             </select>
           </div>
           <label for="" class="select-teacher select-label">Teacher</label>
-          <div class="input-container select">
-            <select name="select-teacher" id="" required>
-              <option value="">Teacher</option>
-              <option value="John Doe">John Doe</option>
-              <option value="Jane Doe">Jane Doe</option>
-            </select>
+          <div class="input-container">
+            <input type="text" name="select-teacher" placeholder="" required />
+            <label for="select-teacher">Last Name</label>
           </div>
           <label for="" class="select-year select-label">Area</label>
           <div class="input-container select">
@@ -126,7 +131,7 @@
       </div>
       <div class="right">
         <a href="history.html">History</a>
-        <button class="logout">Logout</button>
+        <button class="logout" >Logout</button>
       </div>
     </header>
     <main>
