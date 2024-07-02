@@ -14,7 +14,7 @@
     grid-area: heading;
     font-size: 2em;
   }
-  
+
   .today {
     grid-area: today;
     justify-self: end;
@@ -84,4 +84,16 @@
     background-color: var(--danger);
     grid-area: btn-time-out;
   }
+  .btn-confirm {
+    background-color: var(--danger);
+    width: fit-content;
+    margin-left: auto;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+}
+
+.alter-time {
+  display: none;
 }

@@ -60,7 +60,7 @@
   grid-area: time-in;
   justify-self: end;
 }
-.time-out-list-container .btn-confirm {
+.time-out-list-container .btn-time-out {
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
@@ -71,4 +71,17 @@
   border-radius: 4px;
   background-color: var(--danger);
   grid-area: btn-time-out;
+}
+.time-out-list-container .btn-confirm {
+  background-color: var(--danger);
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.alter-time {
+  display: none;
 }/*# sourceMappingURL=content.css.map */

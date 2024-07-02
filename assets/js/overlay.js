@@ -7,6 +7,7 @@ const time_in = document.querySelector(".actions .time-in");
 const time_out = document.querySelector(".actions .time-out");
 const form = document.querySelector(".input-form form");
 const confirm = document.querySelector(".confirm");
+const success = document.querySelector(".success");
 
 time_in.addEventListener("click", (e) => {
   e.preventDefault();
@@ -34,4 +35,5 @@ overlay.addEventListener("click", (e) => {
   e.target.style.display = "none";
   input_overlay.style.display = "none";
   time_out_overlay.style.display = "none";
+  success.style.display = "none";
 });

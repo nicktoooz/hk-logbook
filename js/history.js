@@ -1,13 +1,13 @@
 import { loadData } from "./utils/loadData.js";
 import { convertTo12HourFormat, getDate, getTime } from "./utils/date.js";
 
-
 let attendanceData = [];
 const tableBody = document.querySelector("tbody");
 const searchInput = document.querySelector(".search");
 const courseSelect = document.querySelector(".select-course");
 const yearSelect = document.querySelector(".select-year");
 const dateSelect = document.querySelector(".select-date");
+const statusSelect = document.querySelector(".select-status");
 const exportBtn = document.getElementById("export-btn");
 
 function createTableRow(data) {
@@ -51,6 +51,17 @@ function createTableRow(data) {
   dateCell.textContent = data.date;
   row.appendChild(dateCell);
 
+  const statusCell = document.createElement("td");
+  let status = data.status;
+  if (status === "CONFIRMED") {
+    statusCell.style.backgroundColor = "var(--primary)";
+  } else if (status === "PENDING") {
+    statusCell.style.backgroundColor = "var(--warning)";
+  } else if (status === "FAILED") {
+    statusCell.style.backgroundColor = "var(--danger)";
+  }
+  row.appendChild(statusCell);
+
   return row;
 }
 
@@ -79,13 +90,25 @@ function populateDateDropdown(data) {
 function exportToExcel() {
   const rows = Array.from(tableBody.querySelectorAll("tr"));
   const data = rows.map((row) => {
-    return Array.from(row.querySelectorAll("td")).map((cell) =>
-      cell.textContent.trim()
-    );
+    const cells = Array.from(row.querySelectorAll("td"));
+    const statusCell = cells[9];
+    let statusText = "";
+
+    if (statusCell.style.backgroundColor === "var(--primary)") {
+      statusText = "CONFIRMED";
+    } else if (statusCell.style.backgroundColor === "var(--warning)") {
+      statusText = "PENDING";
+    } else if (statusCell.style.backgroundColor === "var(--danger)") {
+      statusText = "FAILED";
+    }
+
+    const rowData = cells.map((cell) => cell.textContent.trim());
+    rowData[9] = statusText;
+    return rowData;
   });
 
   const headers = [
-    'Student ID',
+    "Student ID",
     "Full Name",
     "Course",
     "Year",
@@ -94,6 +117,7 @@ function exportToExcel() {
     "Time In",
     "Time Out",
     "Date",
+    "Status",
   ];
   data.unshift(headers);
 
@@ -104,6 +128,7 @@ function exportToExcel() {
   ws["!cols"][4] = { wch: 15 };
   ws["!cols"][5] = { wch: 10 };
   ws["!cols"][8] = { wch: 10 };
+  ws["!cols"][9] = { wch: 12 };
 
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "Attendance");
@@ -115,16 +140,19 @@ function filterData() {
   const selectedCourse = courseSelect.value;
   const selectedYear = yearSelect.value;
   const selectedDate = dateSelect.value;
+  const selectedStatus = statusSelect.value;
 
   const filteredData = attendanceData.filter((data) => {
     const fullName = `${data.first_name} ${data.last_name}`.toLowerCase();
     const normalizedDataDate = new Date(data.date).toISOString().slice(0, 10);
+    const dataStatus = data.status;
 
     return (
       fullName.includes(searchText) &&
       (selectedCourse ? data.course === selectedCourse : true) &&
       (selectedYear ? data.year === selectedYear : true) &&
-      (selectedDate ? normalizedDataDate === selectedDate : true)
+      (selectedDate ? normalizedDataDate === selectedDate : true) &&
+      (selectedStatus ? dataStatus === selectedStatus : true)
     );
   });
 
@@ -135,6 +163,7 @@ searchInput.addEventListener("input", filterData);
 courseSelect.addEventListener("change", filterData);
 yearSelect.addEventListener("change", filterData);
 dateSelect.addEventListener("change", filterData);
+statusSelect.addEventListener("change", filterData);
 exportBtn.addEventListener("click", exportToExcel);
 
 loadData()

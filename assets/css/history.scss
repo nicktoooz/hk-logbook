@@ -1,6 +1,6 @@
 @import url(./preflight.css);
 @import url(./components/input.css);
-#body {
+body {
   color: var(--text);
   background-color: var(--background);
 }
@@ -62,8 +62,8 @@ td:not(:first-child) {
   font-size: 0.8em;
 }
 
-select:focus-visible{
-    outline: none;
+select:focus-visible {
+  outline: none;
 }
 
 .input-container select {
@@ -78,6 +78,6 @@ select:focus-visible{
   display: flex;
   gap: 1em;
 }
-#export-btn{
+#export-btn {
   cursor: pointer;
 }

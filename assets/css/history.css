@@ -1,6 +1,6 @@
 @import url(./preflight.css);
 @import url(./components/input.css);
-#body {
+body {
   color: var(--text);
   background-color: var(--background);
 }
@@ -68,11 +68,8 @@ td {
 td:not(:first-child) {
   text-align: center;
 }
-th:nth-child(1){
-  width: 17ch;
-}
-td:nth-child(1), td:nth-child(2){
-  text-align: start;
+td:nth-child(2) {
+  text-align: start !important;
 }
 
 .select-label {
@@ -98,4 +95,4 @@ select:focus-visible {
 
 #export-btn {
   cursor: pointer;
-}/*# sourceMappingURL=history.css.map */
+} /*# sourceMappingURL=history.css.map */

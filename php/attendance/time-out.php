@@ -13,12 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $id = (int) $data['id']; 
     $timeOut = $data['timeOut'];
+    $status = "CONFIRMED";
 
-    $query = "UPDATE attendance SET time_out = ? WHERE id = ?";
+    $query = "UPDATE attendance SET time_out = ?, `status` = ? WHERE id = ?";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
-        $stmt->bind_param("si", $timeOut, $id);
+        $stmt->bind_param("ssi", $timeOut, $status, $id);
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
