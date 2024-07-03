@@ -11,14 +11,7 @@
   <body>
     <div class="overlay">
       <div class="success">
-        <lottie-player
-          id="lottie-player"
-          src="./assets/images/check_anim.json"
-          background="transparent"
-          speed="1"
-          loop="1"
-          style="width: 200px; height: 200px"
-        ></lottie-player>
+        <lottie-player id="lottie-player" src="./assets/images/check_anim.json" background="transparent" speed="1" loop="1" style="width: 200px; height: 200px"></lottie-player>
         <h2 class="message"></h2>
       </div>
       <div class="confirm">
@@ -30,13 +23,11 @@
           <p class="summary time-out">00:00:00</p>
           <input type="hidden" name="" id="arb" />
           <div class="input-container alter-time">
-            <input type="text" name="alter-time" placeholder="" required />
-            <label for="alter-time">Alter Time</label>
           </div>
           <p class="summary-label">Date</p>
           <p class="summary date">YYYY-MM-DD</p>
           <p class="summary-label">Time</p>
-          <p class="summary hours">X</p>
+          <p class="summary hours"></p>
         </div>
         <div class="time-out-action">
           <button class="time-out-cancel"></button>
@@ -47,13 +38,7 @@
         <h1 class="heading">Time In</h1>
         <form action="">
           <div class="input-container">
-            <input
-              type="text"
-              maxlength="15"
-              name="student-number"
-              placeholder=""
-              required
-            />
+            <input type="text" maxlength="15" name="student-number" placeholder="" required />
             <label for="student">Student Number</label>
           </div>
           <div class="input-container">
@@ -104,9 +89,7 @@
             </select>
           </div>
 
-          <button class="btn-time-in" type="submit" name="submit">
-            Time In
-          </button>
+          <button class="btn-time-in" type="submit" name="submit">Time In</button>
         </form>
         <div class="details">
           <div class="date-and-time">
@@ -121,13 +104,7 @@
         <h1 class="heading">Time Out</h1>
         <h1 class="today">YYYY-MM-DD</h1>
         <div class="input-container">
-          <input
-            type="text"
-            class="search"
-            name="search"
-            placeholder=""
-            required
-          />
+          <input type="text" class="search" name="search" placeholder="" required />
           <label for="search">Search Student</label>
         </div>
         <div class="attendance-list"></div>

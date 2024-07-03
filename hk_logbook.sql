@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 01, 2024 at 10:21 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Jul 03, 2024 at 12:18 PM
+-- Server version: 8.0.35
+-- PHP Version: 8.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `attendance` (
-  `id` int(11) NOT NULL,
-  `student_number` varchar(100) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `year` int(3) NOT NULL,
-  `teacher` varchar(100) NOT NULL,
-  `area` varchar(100) NOT NULL,
-  `course` varchar(100) NOT NULL,
-  `time_in` varchar(20) NOT NULL,
-  `time_out` varchar(20) DEFAULT NULL,
+  `id` int NOT NULL,
+  `student_number` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `first_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `last_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `year` int NOT NULL,
+  `teacher` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `area` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `course` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `time_in` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `time_out` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date` date NOT NULL,
-  `status` enum('CONFIRMED','PENDING','FAILED','') NOT NULL DEFAULT 'PENDING'
+  `status` enum('CONFIRMED','PENDING','FAILED','') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'PENDING'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -79,7 +79,8 @@ INSERT INTO `attendance` (`id`, `student_number`, `first_name`, `last_name`, `ye
 (55, '03-2122-032954', 'Dominic', 'Enriquez', 1, 'Foo Bar', 'Class Faci', 'BSCRIM', '00:54:56', NULL, '2024-07-01', 'FAILED'),
 (56, '03-2122-032954', 'Dominic', 'Enriquez', 1, 'Foo Bar', 'Class Faci', 'BSCRIM', '00:56:55', '01:57:00', '2024-07-01', 'CONFIRMED'),
 (57, '03-2122-032954', 'Dominic', 'Enriquez', 1, 'Foo Bar', 'Class Faci', 'BSCRIM', '01:12:10', '2:00:00', '2024-07-01', 'CONFIRMED'),
-(58, '03-2122-032954', 'Dominic', 'Enriquez', 1, 'Foo Bar', 'Class Faci', 'BSCRIM', '01:46:47', '02:04:16', '2024-07-01', 'PENDING');
+(58, '03-2122-032954', 'Dominic', 'Enriquez', 1, 'Foo Bar', 'Class Faci', 'BSCRIM', '08:46:47', '12:00:00', '2024-07-03', 'PENDING'),
+(59, '03-2122-032954', 'Dominic', 'Enriquez', 2, 'Chocen', 'Class Faci', 'BSMLS', '16:16:13', '18:00:00', '2024-07-03', 'PENDING');
 
 --
 -- Indexes for dumped tables
@@ -99,7 +100,7 @@ ALTER TABLE `attendance`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 DELIMITER $$
 --
@@ -107,9 +108,9 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` EVENT `time_out_at_12` ON SCHEDULE EVERY 1 DAY STARTS '2024-06-20 12:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE attendance SET time_out = '12:00:00' WHERE time_out IS NULL AND DATE(`date`) = CURDATE()$$
 
-CREATE DEFINER=`root`@`localhost` EVENT `time_out_at_17` ON SCHEDULE EVERY 1 DAY STARTS '2024-06-20 17:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE attendance SET time_out = '17:00:00' WHERE time_out IS NULL AND DATE(`date`) = CURDATE()$$
+CREATE DEFINER=`root`@`localhost` EVENT `time_out_at_17` ON SCHEDULE EVERY 1 DAY STARTS '2024-06-20 18:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE attendance SET time_out = '18:00:00' WHERE time_out IS NULL AND DATE(`date`) = CURDATE()$$
 
-CREATE DEFINER=`root`@`localhost` EVENT `invalidate_faci` ON SCHEDULE EVERY 1 DAY STARTS '2024-07-01 18:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE attendance SET status = 'FAILED' WHERE status = 'PENDING'$$
+CREATE DEFINER=`root`@`localhost` EVENT `invalidate_faci` ON SCHEDULE EVERY 1 DAY STARTS '2024-07-01 18:30:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE attendance SET status = 'FAILED' WHERE status = 'PENDING'$$
 
 DELIMITER ;
 COMMIT;
